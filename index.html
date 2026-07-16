@@ -1,198 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2563eb">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Calistenia">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Calistenia</title>
 
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-}
+<title>Reto 31 Días</title>
 
-body{
-background:#111827;
-color:white;
-padding:20px;
-}
+<meta name="theme-color" content="#1c2b26">
 
-h1{
-text-align:center;
-margin-bottom:20px;
-font-size:32px;
-}
+<link rel="manifest" href="manifest.json">
 
-.card{
-background:#1f2937;
-padding:20px;
-border-radius:18px;
-margin-bottom:18px;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
-}
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-button{
-width:100%;
-padding:18px;
-border:none;
-border-radius:14px;
-font-size:18px;
-background:#2563eb;
-color:white;
-margin-top:12px;
-}
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-button:active{
-transform:scale(.98);
-}
+<meta name="apple-mobile-web-app-title" content="Reto 31">
 
-input{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-margin-top:10px;
-font-size:18px;
-}
-
-select{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-margin-top:10px;
-font-size:18px;
-}
-
-h2{
-margin-bottom:10px;
-}
-
-#resultado{
-font-size:28px;
-text-align:center;
-margin-top:15px;
-font-weight:bold;
-color:#4ade80;
-}
-
-</style>
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<h1>💪 Calistenia</h1>
+<div id="app">
 
-<div class="card">
+<header class="topbar">
 
-<h2>Entrenamiento de hoy</h2>
+<h1>💪 Reto 31 Días</h1>
 
-<button onclick="entreno()">
-Generar entrenamiento
-</button>
+<p>Calistenia · Entrenador personal</p>
 
-<div id="resultado"></div>
+</header>
 
-</div>
+<main id="contenido">
 
-<div class="card">
+<section id="pantallaInicio">
 
-<h2>Peso</h2>
+<h2>Bienvenido</h2>
 
-<input id="peso" type="number" placeholder="Introduce tu peso">
+<p>
 
-<button onclick="guardarPeso()">
-Guardar peso
-</button>
+Tu reto personal de 31 días.
 
-</div>
+Cada día tendrás un entrenamiento guiado con temporizador,
 
-<div class="card">
+progreso y estadísticas.
 
-<h2>Nivel</h2>
+</p>
 
-<select id="nivel">
+<button id="empezarBtn">
 
-<option>Principiante</option>
-
-<option>Intermedio</option>
-
-<option>Avanzado</option>
-
-</select>
-
-<button onclick="guardarNivel()">
-
-Guardar nivel
+Empezar
 
 </button>
 
+</section>
+
+<section id="pantallaCalendario" style="display:none">
+
+<h2>Calendario</h2>
+
+<div id="calendario">
+
 </div>
 
-<script>
+</section>
 
-const entrenamientos=[
+<section id="pantallaEntreno" style="display:none">
 
-"50 Flexiones",
+<h2 id="tituloDia">
 
-"100 Sentadillas",
+Día 1
 
-"30 Dominadas",
+</h2>
 
-"5 rondas de Burpees",
+<div id="temporizador">
 
-"Core durante 10 minutos",
+00:30
 
-"20 Fondos",
+</div>
 
-"Cardio 20 minutos",
+<div id="nombreEjercicio">
 
-"Movilidad 15 minutos"
+Marcha en el sitio
 
-];
+</div>
 
-function entreno(){
+<div id="descripcion">
 
-let r=Math.floor(Math.random()*entrenamientos.length);
+Prepara el cuerpo.
 
-document.getElementById("resultado").innerHTML=entrenamientos[r];
+</div>
 
-}
+<button id="playBtn">
 
-function guardarPeso(){
+▶ Comenzar
 
-localStorage.setItem("peso",document.getElementById("peso").value);
+</button>
 
-alert("Peso guardado");
+<button id="siguienteBtn">
 
-}
+Siguiente
 
-function guardarNivel(){
+</button>
 
-localStorage.setItem("nivel",document.getElementById("nivel").value);
+</section>
 
-alert("Nivel guardado");
+</main>
 
-}
+</div>
 
-window.onload=function(){
-
-document.getElementById("peso").value=localStorage.getItem("peso")||"";
-
-document.getElementById("nivel").value=localStorage.getItem("nivel")||"Principiante";
-
-}
-
-</script>
+<script src="app.js"></script>
 
 </body>
 
