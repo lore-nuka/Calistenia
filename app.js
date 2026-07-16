@@ -145,3 +145,42 @@ generarEntrenamiento();
 alert(entrenamiento.join("\n"));
 
 }
+function completarEntrenamiento(){
+
+    estado.puntos += 50;
+
+    estado.fuerza += 1;
+
+    estado.resistencia += 1;
+
+    estado.dia += 1;
+
+    guardarEstado();
+
+    actualizarCabecera();
+
+    alert("🎉 Entrenamiento completado.\n\n+50 puntos");
+
+}
+function subirNivel(){
+
+    if(estado.puntos>=500){
+
+        estado.nivel++;
+
+        estado.puntos=0;
+
+        guardarEstado();
+
+        alert("🏆 ¡Has subido de nivel!");
+
+    }
+
+}
+function finalizarSesion(){
+
+    completarEntrenamiento();
+
+    subirNivel();
+
+}
