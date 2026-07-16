@@ -1,0 +1,45 @@
+:root{
+    --bg:#0f1115;
+    --card:#181c22;
+    --gold:#d4af37;
+    --text:#f4f4f4;
+    --secondary:#9ca3af;
+    --radius:18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    background:var(--gold);
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+}
