@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calistenia</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+background:#111827;
+color:white;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+font-size:32px;
+}
+
+.card{
+background:#1f2937;
+padding:20px;
+border-radius:18px;
+margin-bottom:18px;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:14px;
+font-size:18px;
+background:#2563eb;
+color:white;
+margin-top:12px;
+}
+
+button:active{
+transform:scale(.98);
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+font-size:18px;
+}
+
+select{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+font-size:18px;
+}
+
+h2{
+margin-bottom:10px;
+}
+
+#resultado{
+font-size:28px;
+text-align:center;
+margin-top:15px;
+font-weight:bold;
+color:#4ade80;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>💪 Calistenia</h1>
+
+<div class="card">
+
+<h2>Entrenamiento de hoy</h2>
+
+<button onclick="entreno()">
+Generar entrenamiento
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<div class="card">
+
+<h2>Peso</h2>
+
+<input id="peso" type="number" placeholder="Introduce tu peso">
+
+<button onclick="guardarPeso()">
+Guardar peso
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Nivel</h2>
+
+<select id="nivel">
+
+<option>Principiante</option>
+
+<option>Intermedio</option>
+
+<option>Avanzado</option>
+
+</select>
+
+<button onclick="guardarNivel()">
+
+Guardar nivel
+
+</button>
+
+</div>
+
+<script>
+
+const entrenamientos=[
+
+"50 Flexiones",
+
+"100 Sentadillas",
+
+"30 Dominadas",
+
+"5 rondas de Burpees",
+
+"Core durante 10 minutos",
+
+"20 Fondos",
+
+"Cardio 20 minutos",
+
+"Movilidad 15 minutos"
+
+];
+
+function entreno(){
+
+let r=Math.floor(Math.random()*entrenamientos.length);
+
+document.getElementById("resultado").innerHTML=entrenamientos[r];
+
+}
+
+function guardarPeso(){
+
+localStorage.setItem("peso",document.getElementById("peso").value);
+
+alert("Peso guardado");
+
+}
+
+function guardarNivel(){
+
+localStorage.setItem("nivel",document.getElementById("nivel").value);
+
+alert("Nivel guardado");
+
+}
+
+window.onload=function(){
+
+document.getElementById("peso").value=localStorage.getItem("peso")||"";
+
+document.getElementById("nivel").value=localStorage.getItem("nivel")||"Principiante";
+
+}
+
+</script>
+
+</body>
+
+</html>
