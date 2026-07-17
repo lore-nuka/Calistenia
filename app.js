@@ -276,7 +276,7 @@ if(finalizar){
         finalizarSesion();
 
     });
-
+}
 // ===============================
 // NAVEGACIÓN ENTRE PANTALLAS
 // ===============================
