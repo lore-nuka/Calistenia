@@ -293,14 +293,31 @@ function crearCalendario() {
 
         const boton = document.createElement("button");
 
-        boton.textContent = "Día " + i;
+        boton.textContent = i;
+
+        if(i < estado.dia){
+
+            boton.className = "diaCompletado";
+
+        }else if(i === estado.dia){
+
+            boton.className = "diaActual";
+
+        }else{
+
+            boton.className = "diaBloqueado";
+            boton.disabled = true;
+
+        }
 
         boton.onclick = () => {
 
-            document.getElementById("pantallaCalendario").style.display = "none";
-            document.getElementById("pantallaEntreno").style.display = "block";
+            if(i !== estado.dia) return;
 
-            document.getElementById("tituloDia").textContent = "Día " + i;
+            document.getElementById("pantallaCalendario").style.display="none";
+            document.getElementById("pantallaEntreno").style.display="block";
+
+            document.getElementById("tituloDia").textContent="Día "+i;
 
         };
 
@@ -309,22 +326,3 @@ function crearCalendario() {
     }
 
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const empezarBtn = document.getElementById("empezarBtn");
-
-    if (empezarBtn) {
-
-        empezarBtn.addEventListener("click", () => {
-
-            document.getElementById("pantallaInicio").style.display = "none";
-            document.getElementById("pantallaCalendario").style.display = "block";
-
-            crearCalendario();
-
-        });
-
-    }
-
-});
