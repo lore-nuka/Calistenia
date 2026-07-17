@@ -220,7 +220,6 @@ function iniciarTemporizador(segundos){
     },1000);
 
 }
-
 function actualizarTemporizador(){
 
     const reloj = document.getElementById("temporizador");
@@ -232,9 +231,19 @@ function actualizarTemporizador(){
         const seg = tiempo%60;
 
         reloj.innerHTML =
-        String(min).padStart(2,"0")
-        +":"
-        +String(seg).padStart(2,"0");
+            String(min).padStart(2,"0")
+            +":"
+            +String(seg).padStart(2,"0");
+
+    }
+
+    const barra = document.getElementById("barraTiempo");
+
+    if(barra){
+
+        const porcentaje = Math.max(0,(tiempo/30)*100);
+
+        barra.style.width = porcentaje+"%";
 
     }
 
