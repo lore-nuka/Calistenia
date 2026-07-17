@@ -277,4 +277,23 @@ if(finalizar){
 
     });
 
-}
+// ===============================
+// NAVEGACIÓN ENTRE PANTALLAS
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const empezarBtn = document.getElementById("empezarBtn");
+
+    if (empezarBtn) {
+
+        empezarBtn.addEventListener("click", () => {
+
+            document.getElementById("pantallaInicio").style.display = "none";
+            document.getElementById("pantallaCalendario").style.display = "block";
+
+        });
+
+    }
+
+});
