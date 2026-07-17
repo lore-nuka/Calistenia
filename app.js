@@ -307,7 +307,19 @@ function actualizarTemporizador(){
 document.addEventListener("DOMContentLoaded",()=>{
 
     const play=document.getElementById("playBtn");
+const siguiente = document.getElementById("siguienteBtn");
 
+if(siguiente){
+
+    siguiente.addEventListener("click",()=>{
+
+        ejercicioActual++;
+
+        mostrarEjercicio();
+
+    });
+
+}
     if(play){
 
         play.addEventListener("click",()=>{
@@ -372,12 +384,51 @@ function crearCalendario() {
             document.getElementById("tituloDia").textContent="Día "+i;
             estado.dia = i;
 
-cargarEntrenamientoDelDia();
+iniciarDia();
 
         };
 
         calendario.appendChild(boton);
 
     }
+
+}
+// ===============================
+// ENTRENAMIENTO PASO A PASO
+// ===============================
+
+let ejercicioActual = 0;
+let entrenamientoActual = [];
+
+function iniciarDia(){
+
+    entrenamientoActual = plan31Dias[estado.dia-1];
+
+    ejercicioActual = 0;
+
+    mostrarEjercicio();
+
+}
+
+function mostrarEjercicio(){
+
+    if(ejercicioActual >= entrenamientoActual.length){
+
+        finalizarSesion();
+
+        return;
+
+    }
+
+    document.getElementById("nombreEjercicio").textContent =
+        entrenamientoActual[ejercicioActual];
+
+    document.getElementById("descripcion").textContent =
+        "Ejercicio " +
+        (ejercicioActual+1) +
+        " de " +
+        entrenamientoActual.length;
+
+    iniciarTemporizador(30);
 
 }
