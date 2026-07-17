@@ -248,3 +248,33 @@ function actualizarTemporizador(){
     }
 
 }
+// ===============================
+// BOTONES
+// ===============================
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const play=document.getElementById("playBtn");
+
+    if(play){
+
+        play.addEventListener("click",()=>{
+
+            iniciarTemporizador(30);
+
+        });
+
+    }
+
+});
+const finalizar=document.getElementById("finalizarBtn");
+
+if(finalizar){
+
+    finalizar.addEventListener("click",()=>{
+
+        finalizarSesion();
+
+    });
+
+}
