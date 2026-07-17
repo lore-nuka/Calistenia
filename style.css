@@ -91,33 +91,6 @@ button:active{
     font-size:17px;
 }
 
-#calendario{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:10px;
-    margin-top:20px;
-}
-
-.dia{
-    background:white;
-    border-radius:14px;
-    aspect-ratio:1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
-}
-
-.completado{
-    background:#22c55e;
-    color:white;
-}
-
-.actual{
-    background:#ff6b4a;
-    color:white;
-}
 .barraTiempo{
 
 width:100%;
@@ -145,20 +118,34 @@ background:linear-gradient(90deg,#22c55e,#16a34a);
 transition:width 1s linear;
 
 }
+/* ===========================
+   CALENDARIO
+=========================== */
+
 #calendario{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(4,minmax(0,1fr));
     gap:12px;
+    width:100%;
     margin-top:20px;
 }
 
 #calendario button{
+    margin:0;
+    padding:10px;
     width:100%;
-    aspect-ratio:1;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     border:none;
-    border-radius:16px;
-    background:#ff6948;
+    border-radius:14px;
+
+    background:#ff6b4a;
     color:white;
-    font-size:22px;
+
+    font-size:18px;
     font-weight:bold;
 }
