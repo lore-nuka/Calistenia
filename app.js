@@ -432,3 +432,66 @@ function mostrarEjercicio(){
     iniciarTemporizador(30);
 
 }
+// ===============================
+// INICIO DE LA APP
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    cargarEstado();
+    actualizarCabecera();
+
+    const empezarBtn = document.getElementById("empezarBtn");
+
+    if (empezarBtn) {
+
+        empezarBtn.addEventListener("click", () => {
+
+            document.getElementById("pantallaInicio").style.display = "none";
+            document.getElementById("pantallaCalendario").style.display = "block";
+
+            crearCalendario();
+
+        });
+
+    }
+
+    const playBtn = document.getElementById("playBtn");
+
+    if (playBtn) {
+
+        playBtn.addEventListener("click", () => {
+
+            iniciarTemporizador(30);
+
+        });
+
+    }
+
+    const siguienteBtn = document.getElementById("siguienteBtn");
+
+    if (siguienteBtn) {
+
+        siguienteBtn.addEventListener("click", () => {
+
+            ejercicioActual++;
+
+            mostrarEjercicio();
+
+        });
+
+    }
+
+    const finalizarBtn = document.getElementById("finalizarBtn");
+
+    if (finalizarBtn) {
+
+        finalizarBtn.addEventListener("click", () => {
+
+            finalizarSesion();
+
+        });
+
+    }
+
+});
