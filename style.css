@@ -145,3 +145,20 @@ background:linear-gradient(90deg,#22c55e,#16a34a);
 transition:width 1s linear;
 
 }
+#calendario{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+#calendario button{
+    width:100%;
+    aspect-ratio:1;
+    border:none;
+    border-radius:16px;
+    background:#ff6948;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
