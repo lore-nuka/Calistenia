@@ -295,11 +295,6 @@ function crearCalendario() {
 
         boton.textContent = "Día " + i;
 
-        boton.style.margin = "8px";
-        boton.style.width = "100%";
-        boton.style.padding = "15px";
-        boton.style.borderRadius = "12px";
-
         boton.onclick = () => {
 
             document.getElementById("pantallaCalendario").style.display = "none";
