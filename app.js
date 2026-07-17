@@ -114,6 +114,58 @@ avanzado: [
 ]
 
 };
+// ===============================
+// PLAN DE 31 DÍAS
+// ===============================
+
+const plan31Dias = [
+["10 Flexiones","20 Sentadillas","15 Abdominales","30 s Plancha"],
+["12 Flexiones","25 Sentadillas","20 Mountain Climbers","40 s Plancha"],
+["15 Flexiones","30 Sentadillas","20 Zancadas","10 Burpees"],
+["Descanso activo","20 min Caminar","Movilidad","Estiramientos"],
+["20 Flexiones","35 Sentadillas","15 Fondos","45 s Plancha"],
+["25 Flexiones","40 Sentadillas","20 Burpees","20 Zancadas"],
+["Reto: 100 Sentadillas"],
+
+["15 Dominadas","30 Flexiones","50 Sentadillas","1 min Plancha"],
+["20 Fondos","20 Burpees","30 Zancadas","Core"],
+["Descanso activo","Movilidad","Cardio suave"],
+
+["25 Flexiones","20 Dominadas","60 Sentadillas"],
+["30 Flexiones","25 Fondos","25 Burpees"],
+["Core intenso","Plancha lateral","Elevaciones piernas"],
+["Descanso"],
+
+["35 Flexiones","30 Dominadas","70 Sentadillas"],
+["40 Flexiones","30 Fondos","30 Burpees"],
+["HIIT 20 minutos"],
+["Descanso"],
+
+["45 Flexiones","80 Sentadillas","35 Fondos"],
+["Circuito Full Body"],
+["Cardio 30 min"],
+["Descanso"],
+
+["50 Flexiones","40 Dominadas","100 Sentadillas"],
+["Resistencia"],
+["Explosividad"],
+["Descanso"],
+
+["Test físico"],
+["Máximo de flexiones"],
+["Máximo de dominadas"],
+["Final del reto 🎉"]
+];
+function cargarEntrenamientoDelDia(){
+
+    const lista = plan31Dias[estado.dia-1];
+
+    if(!lista) return;
+
+    document.getElementById("nombreEjercicio").innerHTML =
+        lista.join("<br><br>");
+
+}
 function obtenerNivel(){
 
 if(estado.nivel<=1)
@@ -318,6 +370,9 @@ function crearCalendario() {
             document.getElementById("pantallaEntreno").style.display="block";
 
             document.getElementById("tituloDia").textContent="Día "+i;
+            estado.dia = i;
+
+cargarEntrenamientoDelDia();
 
         };
 
