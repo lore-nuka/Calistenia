@@ -278,25 +278,7 @@ if(finalizar){
     });
 }
 // ===============================
-// NAVEGACIÓN ENTRE PANTALLAS
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const empezarBtn = document.getElementById("empezarBtn");
-
-    if (empezarBtn) {
-
-        empezarBtn.addEventListener("click", () => {
-
-            document.getElementById("pantallaInicio").style.display = "none";
-            document.getElementById("pantallaCalendario").style.display = "block";
-
-        });
-
-    }
-    // ===============================
-// CALENDARIO
+// NAVEGACIÓN
 // ===============================
 
 function crearCalendario() {
@@ -315,8 +297,10 @@ function crearCalendario() {
 
         boton.style.margin = "8px";
         boton.style.width = "100%";
+        boton.style.padding = "15px";
+        boton.style.borderRadius = "12px";
 
-        boton.onclick = function () {
+        boton.onclick = () => {
 
             document.getElementById("pantallaCalendario").style.display = "none";
             document.getElementById("pantallaEntreno").style.display = "block";
@@ -331,6 +315,21 @@ function crearCalendario() {
 
 }
 
-document.addEventListener("DOMContentLoaded", crearCalendario);
+document.addEventListener("DOMContentLoaded", () => {
+
+    const empezarBtn = document.getElementById("empezarBtn");
+
+    if (empezarBtn) {
+
+        empezarBtn.addEventListener("click", () => {
+
+            document.getElementById("pantallaInicio").style.display = "none";
+            document.getElementById("pantallaCalendario").style.display = "block";
+
+            crearCalendario();
+
+        });
+
+    }
 
 });
