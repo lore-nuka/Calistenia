@@ -295,5 +295,42 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+    // ===============================
+// CALENDARIO
+// ===============================
+
+function crearCalendario() {
+
+    const calendario = document.getElementById("calendario");
+
+    if (!calendario) return;
+
+    calendario.innerHTML = "";
+
+    for (let i = 1; i <= 31; i++) {
+
+        const boton = document.createElement("button");
+
+        boton.textContent = "Día " + i;
+
+        boton.style.margin = "8px";
+        boton.style.width = "100%";
+
+        boton.onclick = function () {
+
+            document.getElementById("pantallaCalendario").style.display = "none";
+            document.getElementById("pantallaEntreno").style.display = "block";
+
+            document.getElementById("tituloDia").textContent = "Día " + i;
+
+        };
+
+        calendario.appendChild(boton);
+
+    }
+
+}
+
+document.addEventListener("DOMContentLoaded", crearCalendario);
 
 });
