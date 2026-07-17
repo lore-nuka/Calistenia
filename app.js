@@ -184,3 +184,58 @@ function finalizarSesion(){
     subirNivel();
 
 }
+// ===============================
+// TEMPORIZADOR
+// ===============================
+
+let tiempo = 0;
+let intervalo = null;
+
+function iniciarTemporizador(segundos){
+
+    clearInterval(intervalo);
+
+    tiempo = segundos;
+
+    actualizarTemporizador();
+
+    intervalo = setInterval(()=>{
+
+        tiempo--;
+
+        actualizarTemporizador();
+
+        if(tiempo<=0){
+
+            clearInterval(intervalo);
+
+            if(navigator.vibrate){
+                navigator.vibrate([300,150,300]);
+            }
+
+            alert("✅ Tiempo terminado");
+
+        }
+
+    },1000);
+
+}
+
+function actualizarTemporizador(){
+
+    const reloj = document.getElementById("temporizador");
+
+    if(reloj){
+
+        const min = Math.floor(tiempo/60);
+
+        const seg = tiempo%60;
+
+        reloj.innerHTML =
+        String(min).padStart(2,"0")
+        +":"
+        +String(seg).padStart(2,"0");
+
+    }
+
+}
