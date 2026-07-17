@@ -149,3 +149,39 @@ transition:width 1s linear;
     font-size:18px;
     font-weight:bold;
 }
+/* ===== ESTADOS DEL CALENDARIO ===== */
+
+.diaCompletado{
+
+    background:#22c55e !important;
+    color:white;
+
+}
+
+.diaActual{
+
+    background:#ff6b4a !important;
+    color:white;
+
+    animation:latido 1.2s infinite;
+
+}
+
+.diaBloqueado{
+
+    background:#d1d5db !important;
+    color:#666 !important;
+
+    opacity:.6;
+
+}
+
+@keyframes latido{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.06);}
+
+100%{transform:scale(1);}
+
+}
